@@ -412,7 +412,9 @@ app.post('/api/print', (req, res) => {
     const filePath = path.join(__dirname, 'invoice.html');
     fs.writeFileSync(filePath, htmlContent);
 
-    const printCommand = process.platform === 'win32' ? `start ${filePath}` : `lp ${filePath}`;
+    const printCommand = process.platform === 'win32'
+    ? `print /d:EPSON L130 Series "${filePath}"`
+    : `lp ${filePath}`;
     exec(printCommand, (error) => {
         if (error) {
             console.error('Error printing:', error);
