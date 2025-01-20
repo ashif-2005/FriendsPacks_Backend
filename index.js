@@ -409,18 +409,17 @@ app.post('/api/print', (req, res) => {
         </html>
     `;
 
+    const path = require('path');
+    const fs = require('fs');
+
     const filePath = path.join(__dirname, 'invoice.html');
     fs.writeFileSync(filePath, htmlContent);
 
-    const printCommand = process.platform === 'win32'
-    ? `print /d:EPSON L130 Series "${filePath}"`
-    : `lp ${filePath}`;
-    exec(printCommand, (error) => {
-        if (error) {
-            console.error('Error printing:', error);
-            res.status(500).send({ message: 'Error printing the document' });
-        } else {
-            res.send({ message: 'Document printed successfully' });
+    // Redirect the user to the generated file
+    res.sendFile(filePath, (err) => {
+        if (err) {
+            console.error('Error serving the file:', err);
+            res.status(500).send({ message: 'Error serving the document' });
         }
     });
 });
