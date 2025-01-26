@@ -267,7 +267,7 @@ app.post('/api/invoice', (req, res) => {
             <div class="invoice">
                 <div class="header">
                     <div class="logo">
-                        <img src="logo.png" alt="Company Logo">
+                        <img src="./logo.png" alt="Company Logo">
                     </div>
                     <div class="company-details">
                         <h1>FRIENDS PACKS</h1>
