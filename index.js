@@ -12,7 +12,7 @@ const PORT = 5000;
 app.use(cors());
 app.use(bodyParser.json());
 
-app.post('/api/print', (req, res) => {
+app.post('/api/invoice', (req, res) => {
     const { companyName, address, city, state, gstno, stateCode, invoiceNo, poNumber, poDate, invoiceDate, items } = req.body;
 
     let totalAmount = 0
@@ -409,19 +409,21 @@ app.post('/api/print', (req, res) => {
         </html>
     `;
 
-    const path = require('path');
-    const fs = require('fs');
-
     const filePath = path.join(__dirname, 'invoice.html');
     fs.writeFileSync(filePath, htmlContent);
 
     // Redirect the user to the generated file
-    res.sendFile(filePath, (err) => {
-        if (err) {
-            console.error('Error serving the file:', err);
-            res.status(500).send({ message: 'Error serving the document' });
-        }
-    });
+    // res.sendFile(filePath, (err) => {
+    //     if (err) {
+    //         console.error('Error serving the file:', err);
+    //         res.status(500).send({ message: 'Error serving the document' });
+    //     }
+    // });
+    res.status(200).json({"message": "Success"})
+});
+
+app.get('/api/print', (req, res) => {
+    res.sendFile(path.join(__dirname, 'invoice.html'));
 });
 
 app.listen(PORT, () => {
