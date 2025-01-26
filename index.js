@@ -257,6 +257,9 @@ app.post('/api/invoice', (req, res) => {
                     align-items: center;
                 }
                 .col {
+                    width: 5%;
+                }
+                .coll {
                     width: 10%;
                 }
                 .spl {
@@ -310,9 +313,9 @@ app.post('/api/invoice', (req, res) => {
                                 <th class="col">HSN Code</th>
                                 <th class="col">DC No</th>
                                 <th class="column">Description</th>
-                                <th class="col">Quantity (Kgs/Nos)</th>
-                                <th class="col">Rate</th>
-                                <th class="col">Amount Rs.   Ps</th>
+                                <th class="coll">Quantity (Kgs/Nos)</th>
+                                <th class="coll">Rate</th>
+                                <th class="coll">Amount Rs.   Ps</th>
                             </tr>
                         </thead>
                         <tbody>
