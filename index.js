@@ -15,7 +15,7 @@ app.use(cors());
 app.use(bodyParser.json());
 
 app.post('/api/invoice', (req, res) => {
-    const { companyName, address, city, state, gstno, stateCode, invoiceNo, poNumber, poDate, invoiceDate, items } = req.body;
+    const { companyName, address, city, state, gstno, stateCode, invoiceNo, poNumber, poDate, invoiceDate, transport, place, items } = req.body;
 
     let totalAmount = 0
     let totalQuantity = 0
@@ -68,7 +68,7 @@ app.post('/api/invoice', (req, res) => {
         return parts.join(" ").trim();
     }
     
-    const totalRows = 7
+    const totalRows = 12
 
     function adjustToNearestWhole(amount) {
         const rounded = Math.round(amount); // Round to the nearest whole number
@@ -313,8 +313,8 @@ app.post('/api/invoice', (req, res) => {
                             </div>
                         </div>
                         <div class="mode">
-                            <h3>Transpotation Mode: Eicher</h3>
-                            <h3>Place of Supply: Bangalore</span></h3>
+                            <h3>Transpotation Mode: ${transport}</h3>
+                            <h3>Place of Supply: ${place}</span></h3>
                         </div>
                     </div>
                 </div>
