@@ -123,7 +123,7 @@ app.post('/api/invoice', (req, res) => {
                     display: flex;
                 }
                 .tocompany .customer-details {
-                    width: 70%;
+                    width: 50%;
                     padding-left: 10px;
                     border-right: solid 2px black;
                     border-bottom: solid 2px black;
@@ -140,19 +140,26 @@ app.post('/api/invoice', (req, res) => {
                     height: fit-content;
                 }
                 .tocompany .invoice-details {
-                    width: 30%;
+                    width: 50%;
                     border-bottom: solid 2px black;
                 }
                 .tocompany .invoice-details .tax {
                     text-align: center;
                     border-bottom: solid 2px black;
                 }
+                .tocompany .invoice-details .invv {
+                    display: flex;
+                    margin-top: -15px;
+                }
                 .tocompany .invoice-details .inv {
+                    width: 50%;
+                    border-right: solid 2px black;
                     border-bottom: solid 2px black;
                 }
-                .tocompany .invoice-details .inv, .tocompany .invoice-details .po {
-                    padding-left: 10px;
-                } 
+                .tocompany .invoice-details .po {
+                    width: 50%;
+                    border-bottom: solid 2px black;
+                }
                 .bill {
                     height: 270px;
                     border-bottom: solid 2px black;
@@ -169,7 +176,7 @@ app.post('/api/invoice', (req, res) => {
                     border-right: 2px solid black;
                 }
                 .bill th, .bill td {
-                    padding: 8px;
+                    padding: 2px;
                     text-align: center;
                 }
                 .bank-total {
@@ -260,7 +267,7 @@ app.post('/api/invoice', (req, res) => {
                     width: 5%;
                 }
                 .coll {
-                    width: 10%;
+                    width: 7%;
                 }
                 .spl {
                     font-size: 20px;
@@ -295,13 +302,19 @@ app.post('/api/invoice', (req, res) => {
                     </div>
                     <div class="invoice-details">
                         <h3 class="tax">TAX INVOICE</h3>
-                        <div class="inv">
-                            <h3>Invoice No: <span class="spl">${invoiceNo}</span></h3>
-                            <h3>Date: <span class="spl">${invoiceDate}</span></h3>
+                        <div class="invv">
+                            <div class="inv">
+                                <h3>Invoice No: <span class="spl">${invoiceNo}</span></h3>
+                                <h3>Date: ${invoiceDate}</h3>
+                            </div>
+                            <div class="po">
+                                <h3>PO No: <span class="spl">${poNumber}</span></h3>
+                                <h3>Date: ${poDate}</h3>
+                            </div>
                         </div>
-                        <div class="po">
-                            <h3>PO No: <span class="spl">${poNumber}</span></h3>
-                            <h3>Date: <span class="spl">${poDate}</span></h3>
+                        <div class="mode">
+                            <h3>Transpotation Mode: Eicher</h3>
+                            <h3>Place of Supply: Bangalore</span></h3>
                         </div>
                     </div>
                 </div>
